@@ -4,7 +4,7 @@ pipeline{
         PATH = "$PATH:/opt/apache-maven-3.8.5/bin"
     }
     stages{
-     //  stage('GetCode'){
+       stage('GetCode'){
             steps{
                 git credentialsId: 'java-github', url: 'https://github.com/satheeshmskr/web-app.git'
             }
