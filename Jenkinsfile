@@ -4,15 +4,17 @@ pipeline{
         PATH = "$PATH:/opt/apache-maven-3.8.5/bin"
     }
     stages{
-       stage('GetCode'){
+       stage('build'){
             steps{
-                git 'https://github.com/satheeshmskr/web-app.git'
+                sh 'mvn clean compile'
             }
          }        
-       stage('Build'){
+       stage('test'){
             steps{
-                sh 'mvn compile package'
+                sh 'mvn test'
             }
+           stage(build){
+               sh 'mvn package'
          }
         stage('SonarQube analysis') {
 //    def scannerHome = tool 'Sonar-Scanner';
