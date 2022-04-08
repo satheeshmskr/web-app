@@ -6,7 +6,7 @@ pipeline{
     stages{
        stage('GetCode'){
             steps{
-                git credentialsId: 'java-github', url: 'https://github.com/satheeshmskr/web-app.git'
+                git 'https://github.com/satheeshmskr/web-app.git'
             }
          }        
        stage('Build'){
